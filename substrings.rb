@@ -1,6 +1,9 @@
 def substrings(word, dictionary)
+  words = word.downcase.split
   dictionary.reduce(Hash.new(0)) do |acc, curr|
-    acc[curr] = acc[curr]+1 if word.include?(curr)
+    words.each do |word|
+      acc[curr] = acc[curr]+1  if word.include?(curr.downcase)
+    end
     acc
   end
 end
